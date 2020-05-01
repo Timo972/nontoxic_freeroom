@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./index.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <transition name="fade">
+            <div class="chat" v-if="show">
+                <div class="messages">
+                    <template v-for="(msg, index) in messages">
+                        <div v-bind:class="msg.class" :key="index">
+                            <span class="msg-rank" v-bind:style="{color:ranks[msg.owner.rank]}">{{prefix[msg.owner.rank]}} </span><span class="msg-user">{{ msg.owner.username }}:</span><span class="msg-message"> {{msg.msg}}</span>
+                        </div>
+                    </template>
+                </div>
+                <input id="input" ref="inputline" class="inputline" type="text" placeholder="Nachricht" v-model="inputline" @input="inputChange" v-on:keydown.enter="sendMsg" v-on:keydown.tab="autoComplete">
+            </div>
+        </transition>
+        <transition name="fade">
+            <ul class="suggestions" v-if="show">
+                <li class="suggestion" v-for="(suggestion, index) in suggestions" :key="index">
+                    <span class="sug-cmd">{{ commands[suggestion].cmd }}</span>
+                    <span class="sug-desc">{{ commands[suggestion].desc }}</span>
+                    <span class="sug-params">{{ commands[suggestion].params }}</span>
+                </li>
+            </ul>
+        </transition>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

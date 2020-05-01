@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speedo</title>
+    <link rel="stylesheet" href="./index.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <transition name="fade">
+            <div class="speedo" id="speedo" v-if="show">
+                
+            </div>
+        </transition>
+    </div>
+    <div class="speedometer">
+        <svg class="circle" width="50" height="50">
+          <circle class="outer" stroke="#FFFFFF" stroke-width="0.5" style="stroke-opacity: 0.2;" fill="transparent" r="18" cx="25" cy="25" stroke-dasharray="70 30" stroke-dashoffset="0"/>
+          <circle class="background" stroke="#FFFFFF" stroke-width="1.5" style="stroke-opacity: 0.2;" fill="transparent" r="18" cx="25" cy="25" stroke-dasharray="70 30" stroke-dashoffset="0"/>
+          <circle class="progress progress-speed" stroke="url(#gradient)" stroke-width="1.5" style="stroke-opacity: 1;" fill="transparent" r="18" cx="25" cy="25" stroke-dasharray="70 30" stroke-dashoffset="0"/>
+          <defs>
+            <linearGradient id="gradient">
+              <stop offset="30%" stop-color="#FF0245" />
+              <stop offset="100%" stop-color="#BBFFFE" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="text">
+          <span class="speed"></span>
+          <div class="kmh">km/h</div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+}
+.chat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 300px;
+    background: rgba(10,10,10,.4);
+    border-radius: 0 0 1px 0;
+    box-shadow: 0 0 2px rgba(10,10,10,.3);
+}
+.inputline {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    width: 477px;
+    padding: 2px 10px;
+    background: rgba(255,255,255,.1);
+    outline: none;
+    border: 1px solid #777777;
+    margin: 0;
+}
+.suggestions {
+    width: 500px;
+    background: rgba(32, 38, 46, 0.4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 300px;
+}
+.suggestion {
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #999999;
+    padding: 5px 10px;
+}
+.suggestion:first-child {
+    background: rgba(255,255,255,.1);
+}
+.messages {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 255px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #333333;
+    opacity: 0.7;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.msg {
+    padding: 2px;
+    max-width: 480px;
+    margin: 3px 5px 3px 5px;
+    min-width: auto;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+}
+/*.stranger {
+    color: rgb(11, 172, 164);
+}*/
+.error {
+    color:#d35400;
+}
+.own {
+    color: #999999;
+}
+.msg-user {
+    color: #777777;
+}
+.msg-message {
+    color: #f9f9f9;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

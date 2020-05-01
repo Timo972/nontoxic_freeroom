@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="./index.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <transition name="fade">
+            <div class="menu" id="menu" v-if="show" v-bind:style="{top: styles.x+'px', left:styles.y+'px'}">
+                <div class="banner" id="banner" v-bind:style="{backgroundImage: styles.url}"><span class="title">{{title}}</span></div>
+                <div class="subtitle">{{subtitle}}</div>
+                <ul class="item-list">
+                    <template v-for="(item, index) in items">
+                        <li class="item" v-bind:class="{selected:item.isActive}" v-if="item.Type === 'item'" :key="index">
+                            <span class="item-label">{{item.Label}}</span>
+                            <span class="item-right-label">{{item.RightLabel}}</span>
+                        </li>
+                        <li class="item" v-bind:class="{selected:item.isActive}" v-else-if="item.Type === 'checkbox'" :key="index">
+                            <span class="item-label">{{item.Label}}</span>
+                            <input class="item-checkbox" type="checkbox" v-model="item.Checked">
+                        </li>
+                    </template>
+                </ul>
+                <div class="item-desc" v-if="selected.Description" id="itemDesc">{{selected.Description}}</div>
+            </div>
+        </transition>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
